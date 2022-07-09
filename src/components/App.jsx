@@ -1,7 +1,10 @@
 import './App.scss';
+import React, { useContext } from 'react';
+import { ThemeContext } from '../context/ThemeContext';
 
-function App() {
-  return <div className='App'></div>;
+export default function App() {
+  const theme = useContext(ThemeContext);
+  const darkMode = theme.state.darkMode;
+
+  return <div className={`${darkMode ? 'bg-dark' : 'bg-light'}`}></div>;
 }
-
-export default App;
