@@ -5,6 +5,12 @@ import Logos from './Logos/Logos';
 import Background from './Background/Background';
 
 export default function App() {
-
-  return <div className=''></div>;
+  return (
+    <div className=''>
+      <Header />
+      <Cards />
+      <Logos />
+      <Background />
+    </div>
+  );
 }
