@@ -7,7 +7,7 @@ import Background from './Background/Background';
 export default function App() {
   return (
     <div className=''>
-      <Header />
+      <Header title={`We're launching soon`.toUpperCase()} />
       <Cards />
       <Logos />
       <Background />
