@@ -18,10 +18,10 @@ export default function Countdown({ date }) {
 
   return (
     <div className='countdown'>
-      <p>{countdown.days}</p>
-      <p>{countdown.hours}</p>
-      <p>{countdown.minutes}</p>
-      <p>{countdown.seconds}</p>
+      <Card time="days" countdown={countdown.days} />
+      <Card time="hours" countdown={countdown.hours} />
+      <Card time="minutes" countdown={countdown.minutes} />
+      <Card time="seconds" countdown={countdown.seconds} />
     </div>
   );
 }
