@@ -1,0 +1,14 @@
+.countdown {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 6rem;
+  margin-bottom: 22vh;
+}
+
+@media screen and (max-width: 460px) {
+  .countdown {
+    margin-top: 2rem;
+    margin-bottom: 30vh;
+  }
+}

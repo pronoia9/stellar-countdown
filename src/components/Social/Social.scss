@@ -1,0 +1,19 @@
+.social {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 5vh;
+  z-index: 1;
+
+  svg {
+    width: 1.6rem;
+    height: 1.6rem;
+    margin: 0 1rem;
+  }
+}
+
+@media screen and (max-width: 460px) {
+  .social {
+    margin-bottom: 2rem;
+  }
+}
