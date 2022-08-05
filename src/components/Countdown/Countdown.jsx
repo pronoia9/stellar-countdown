@@ -11,9 +11,10 @@ export default function Countdown({ date }) {
       minutes: Math.floor((time / 1000 / 60) % 60),
       seconds: Math.floor((time / 1000) % 60),
     };
-  }
+  };
 
   const [countdown, setCountdown] = useState(timeLeft());
+  useEffect(() => { setTimeout(() => { setCountdown(timeLeft()); }, 1000); });
 
   return (
     <div className='countdown'>
