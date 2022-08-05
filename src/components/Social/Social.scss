@@ -9,17 +9,18 @@
     color: var(--color-main-grayish_blue);
     fill: var(--color-main-grayish_blue);
     transition: 3ms;
+    text-decoration: none;
 
     &:hover {
       color: var(--color-main-soft_red);
       fill: var(--color-main-soft_red);
     }
-  }
 
-  i {
-    width: 1.6rem;
-    height: 1.6rem;
-    margin: 0 1rem;
+    i {
+      font-style: normal;
+      font-size: 1.6rem;
+      margin: 0 1rem;
+    }
   }
 }
 
