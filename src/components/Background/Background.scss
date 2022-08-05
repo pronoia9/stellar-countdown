@@ -1,0 +1,22 @@
+.hills {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 23vh;
+  background-image: url(../../assets/images/pattern-hills.svg);
+  background-size: cover;
+  background-position: top center;
+}
+
+@media screen and (max-width: 460px) {
+  .hills {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 30vh;
+    background-size: ste;
+    background-position-x: 80%;
+  }
+}
