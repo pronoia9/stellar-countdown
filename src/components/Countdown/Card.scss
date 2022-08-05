@@ -15,10 +15,10 @@
   margin-bottom: 1.5rem;
   font-size: 6rem;
   background-color: hsl(236, 21%, 26%);
-  color: hsl(345, 95%, 68%);
+  color: var(--color-main-soft_red);
   letter-spacing: normal;
   border-radius: 0.5rem;
-  box-shadow: 0 0.65rem hsl(234, 17%, 12%);
+  box-shadow: 0 0.65rem var(--color-neutral-black_blue);
   overflow: hidden;
 }
 .card-number-top {
@@ -35,7 +35,7 @@
   position: absolute;
   right: -0.5rem;
   bottom: -0.5rem;
-  background-color: hsl(234, 17%, 12%);
+  background-color: var(--color-neutral-black_blue);
   width: 1rem;
   height: 1rem;
   border-radius: 1rem;
@@ -74,7 +74,7 @@
     min-width: auto;
     padding: 1rem 0.5rem;
     font-size: 2rem;
-    box-shadow: 0 0.4rem hsl(234, 17%, 12%);
+    box-shadow: 0 0.4rem var(--color-neutral-black_blue);
   }
 }.card-flip {
   margin: 0 1rem;
@@ -93,10 +93,10 @@
   margin-bottom: 1.5rem;
   font-size: 6rem;
   background-color: hsl(236, 21%, 26%);
-  color: hsl(345, 95%, 68%);
+  color: var(--color-main-soft_red);
   letter-spacing: normal;
   border-radius: 0.5rem;
-  box-shadow: 0 0.65rem hsl(234, 17%, 12%);
+  box-shadow: 0 0.65rem var(--color-neutral-black_blue);
   overflow: hidden;
 }
 .card-number-top {
@@ -113,7 +113,7 @@
   position: absolute;
   right: -0.5rem;
   bottom: -0.5rem;
-  background-color: hsl(234, 17%, 12%);
+  background-color: var(--color-neutral-black_blue);
   width: 1rem;
   height: 1rem;
   border-radius: 1rem;
@@ -152,6 +152,6 @@
     min-width: auto;
     padding: 1rem 0.5rem;
     font-size: 2rem;
-    box-shadow: 0 0.4rem hsl(234, 17%, 12%);
+    box-shadow: 0 0.4rem var(--color-neutral-black_blue);
   }
 }
