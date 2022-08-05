@@ -5,7 +5,18 @@
   margin-bottom: 5vh;
   z-index: 1;
 
-  svg {
+  a {
+    color: var(--color-main-grayish_blue);
+    fill: var(--color-main-grayish_blue);
+    transition: 3ms;
+
+    &:hover {
+      color: var(--color-main-soft_red);
+      fill: var(--color-main-soft_red);
+    }
+  }
+
+  i {
     width: 1.6rem;
     height: 1.6rem;
     margin: 0 1rem;
