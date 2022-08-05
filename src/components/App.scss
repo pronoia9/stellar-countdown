@@ -27,17 +27,6 @@ body {
   padding: 1.5rem;
 } 
 
-a {
-  color: var(--color-main-grayish_blue);
-  fill: var(--color-main-grayish_blue);
-  transition: 3ms;
-
-  &:hover {
-    color: var(--color-main-soft_red);
-    fill: var(--color-main-soft_red);
-  }
-}
-
 @media screen and (max-width: 460px) {
   h1 {
     font-size: 1.6rem;
