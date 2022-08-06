@@ -1,22 +1,8 @@
 import './CountdowdCard.scss';
 
-// function component
-const AnimatedCard = ({ animation, digit }) => {
-  return (
-    <div className={`countdown-card ${animation}`}>
-      <span>{digit}</span>
-    </div>
-  );
-};
-
-// function component
-const StaticCard = ({ position, digit }) => {
-  return (
-    <div className={position}>
-      <span>{digit}</span>
-    </div>
-  );
-};
+// function components
+const AnimatedCard = ({ animation, digit }) => <div className={`countdown-card ${animation}`}><span>{digit}</span></div>;
+const StaticCard = ({ position, digit }) => <div className={position}><span>{digit}</span></div>;
 
 export default function CountdownCard({ digit, shuffle, unit }) {
   // assign digit values
