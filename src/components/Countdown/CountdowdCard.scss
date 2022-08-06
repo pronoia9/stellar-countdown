@@ -4,7 +4,7 @@
   width: 140px;
   min-width: 11rem;
   height: 120px;
-  margin: 0 1rem 1.5rem 1rem;
+  margin: 0 1rem;
   // padding: 1.5rem 0.8rem;
   background-color: hsl(236, 21%, 26%);
   border-radius: 0.5rem;
@@ -113,6 +113,7 @@
   .unfold {
     border-bottom-left-radius: 0.5rem;
     border-bottom-right-radius: 0.5rem;
+    margin-bottom: 1.5rem;
 
     span {
       transform: translateY(-50%);
@@ -172,5 +173,9 @@
     font-size: 6rem;
     color: var(--color-main-soft_red);
     letter-spacing: normal;
+  }
+
+  p {
+    background: none;
   }
 }
