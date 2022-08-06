@@ -6,7 +6,7 @@
   height: 120px;
   margin: 0 1rem;
   // padding: 1.5rem 0.8rem;
-  background-color: hsl(236, 21%, 26%);
+  background-color: hsl(233, 23%, 21%);
   border-radius: 0.5rem;
   box-shadow: 0 0.65rem var(--color-neutral-black_blue);
   // overflow: hidden;
@@ -72,6 +72,10 @@
     }
   }
 
+  .countdown-card-upper, .fold, .countdown-card-lower, .unfold {
+      // padding: 1.5rem 0.8rem;
+  }
+
   .countdown-card-upper,
   .fold {
     width: 100%;
@@ -84,29 +88,10 @@
       transform: translateY(50%);
     }
 
-    &::before,
-    &::after {
-      content: '';
-      position: absolute;
-      right: -0.5rem;
+  // Circle on the left and right sides
+    &::before, &::after {
       bottom: -0.5rem;
-      background-color: var(--color-neutral-black_blue);
-      width: 1rem;
-      height: 1rem;
-      border-radius: 1rem;
-      z-index: 999;
     }
-
-    &::after {
-      left: -0.5rem;
-    }
-  }
-
-  .countdown-card-upper,
-  .countdown-card-upper span,
-  .fold,
-  .fold span {
-    background-color: hsl(233, 23%, 21%);
   }
 
   .countdown-card-lower,
@@ -114,27 +99,43 @@
     border-bottom-left-radius: 0.5rem;
     border-bottom-right-radius: 0.5rem;
     margin-bottom: 1.5rem;
+    background-color: var(--color-neutral-desaturated_blue);
 
     span {
       transform: translateY(-50%);
     }
 
+  // Circle on the left and right sides
+    &::before, &::after {
+      top: -0.5rem;
+    }
+  }
+
+  // Circle on the left and right sides
+  .countdown-card-lower, .unfold, .countdown-card-upper, .fold {
     &::before,
     &::after {
       content: '';
       position: absolute;
-      right: -0.5rem;
-      top: -0.5rem;
       background-color: var(--color-neutral-black_blue);
       width: 1rem;
       height: 1rem;
       border-radius: 1rem;
+      right: -0.5rem;
       z-index: 999;
     }
 
     &::after {
       left: -0.5rem;
     }
+  }
+
+  // Background color for the top cards
+  .countdown-card-upper,
+  .countdown-card-upper span,
+  .fold,
+  .fold span {
+    background-color: hsl(233, 23%, 21%);
   }
 
   /********************   ANIMATION (START)   ********************/
@@ -176,6 +177,7 @@
   }
 
   p {
+    margin-top: 3rem;
     background: none;
   }
 }
