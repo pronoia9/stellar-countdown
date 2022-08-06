@@ -4,7 +4,7 @@ import './CountdowdCard.scss';
 const AnimatedCard = ({ animation, digit }) => <div className={`countdown-card ${animation}`}><span>{digit}</span></div>;
 const StaticCard = ({ position, digit }) => <div className={position}><span>{digit}</span></div>;
 
-export default function CountdownCard({ digit, shuffle, unit }) {
+export default function CountdownCard({ digit, shuffle, unit, label }) {
   // assign digit values
   let currentDigit = digit;
   let previousDigit = digit + 1;
@@ -27,6 +27,7 @@ export default function CountdownCard({ digit, shuffle, unit }) {
       <StaticCard position={'countdown-card-lower'} digit={previousDigit} />
       <AnimatedCard digit={digit1} animation={animation1} />
       <AnimatedCard digit={digit2} animation={animation2} />
+      <p>{label}</p>
     </div>
   );
 }
