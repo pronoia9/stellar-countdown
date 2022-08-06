@@ -3,7 +3,7 @@ import './CountdowdCard.scss';
 // function component
 const AnimatedCard = ({ animation, digit }) => {
   return (
-    <div className={`flipCard countdown-card ${animation}`}>
+    <div className={`countdown-card ${animation}`}>
       <span>{digit}</span>
     </div>
   );
@@ -36,9 +36,9 @@ export default function CountdownCard({ digit, shuffle, unit }) {
   const animation2 = !shuffle ? 'fold' : 'unfold';
 
   return (
-    <div className='flipUnitContainer countdown-cards-container'>
-      <StaticCard position={'upperCard countdown-card-upper'} digit={currentDigit} />
-      <StaticCard position={'lowerCard countdown-card-lower'} digit={previousDigit} />
+    <div className='countdown-cards-container'>
+      <StaticCard position={'countdown-card-upper'} digit={currentDigit} />
+      <StaticCard position={'countdown-card-lower'} digit={previousDigit} />
       <AnimatedCard digit={digit1} animation={animation1} />
       <AnimatedCard digit={digit2} animation={animation2} />
     </div>
