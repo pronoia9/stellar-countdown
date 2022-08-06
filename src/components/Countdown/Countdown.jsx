@@ -1,6 +1,5 @@
 import React from 'react';
 import CountdownCard from './CountdownCard';
-import './FlipClock.scss';
 import './Countdown.scss';
 
 // class component
@@ -62,7 +61,7 @@ class Countdown extends React.Component {
     const { days, hours, minutes, seconds, daysShuffle, hoursShuffle, minutesShuffle, secondsShuffle } = this.state;
 
     return (
-      <div className={'flipClock'}>
+      <div className='countdown'>
         <CountdownCard unit={'days'} digit={days} shuffle={daysShuffle} />
         <CountdownCard unit={'hours'} digit={hours} shuffle={hoursShuffle} />
         <CountdownCard unit={'minutes'} digit={minutes} shuffle={minutesShuffle} />
