@@ -62,10 +62,10 @@ class Countdown extends React.Component {
 
     return (
       <div className='countdown'>
-        <CountdownCard unit={'days'} digit={days} shuffle={daysShuffle} />
-        <CountdownCard unit={'hours'} digit={hours} shuffle={hoursShuffle} />
-        <CountdownCard unit={'minutes'} digit={minutes} shuffle={minutesShuffle} />
-        <CountdownCard unit={'seconds'} digit={seconds} shuffle={secondsShuffle} />
+        <CountdownCard unit={'days'} digit={days} shuffle={daysShuffle} label='days' />
+        <CountdownCard unit={'hours'} digit={hours} shuffle={hoursShuffle} label='hours' />
+        <CountdownCard unit={'minutes'} digit={minutes} shuffle={minutesShuffle} label='minutes' />
+        <CountdownCard unit={'seconds'} digit={seconds} shuffle={secondsShuffle} label='seconds' />
       </div>
     );
   }
