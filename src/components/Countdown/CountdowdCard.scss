@@ -4,6 +4,7 @@
   width: 140px;
   min-width: 11rem;
   height: 120px;
+  max-width: 100%;
   margin: 0 1rem;
   // padding: 1.5rem 0.8rem;
   background-color: hsl(233, 23%, 21%);
@@ -72,8 +73,11 @@
     }
   }
 
-  .countdown-card-upper, .fold, .countdown-card-lower, .unfold {
-      // padding: 1.5rem 0.8rem;
+  .countdown-card-upper,
+  .fold,
+  .countdown-card-lower,
+  .unfold {
+    // padding: 1.5rem 0.8rem;
   }
 
   .countdown-card-upper,
@@ -88,8 +92,9 @@
       transform: translateY(50%);
     }
 
-  // Circle on the left and right sides
-    &::before, &::after {
+    // Circle on the left and right sides
+    &::before,
+    &::after {
       bottom: -0.5rem;
     }
   }
@@ -105,14 +110,18 @@
       transform: translateY(-50%);
     }
 
-  // Circle on the left and right sides
-    &::before, &::after {
+    // Circle on the left and right sides
+    &::before,
+    &::after {
       top: -0.5rem;
     }
   }
 
   // Circle on the left and right sides
-  .countdown-card-lower, .unfold, .countdown-card-upper, .fold {
+  .countdown-card-lower,
+  .unfold,
+  .countdown-card-upper,
+  .fold {
     &::before,
     &::after {
       content: '';
