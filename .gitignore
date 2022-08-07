@@ -26,3 +26,5 @@ yarn-error.log*
 *.fig
 *.xd
 .prettierignore
+
+src/components/Countdown/FlipClock.scss
