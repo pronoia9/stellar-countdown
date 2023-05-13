@@ -6,22 +6,12 @@ import { getTargetDate } from '../utils/data';
 
 const Countdown = () => {
   const targetDate = getTargetDate();
-  const [countdown, setCountdown] = useState(calculateCountdown());
+  const [countdown, setCountdown] = useState(calculateCountdown(targetDate));
   const interval = useRef();
-
-  function calculateCountdown() {
-    const time = +targetDate - +new Date();
-    return {
-      days: Math.floor(time / (1000 * 60 * 60 * 24)),
-      hours: Math.floor((time / (1000 * 60 * 60)) % 24),
-      minutes: Math.floor((time / 1000 / 60) % 60),
-      seconds: Math.floor((time / 1000) % 60),
-    };
-  }
 
   useEffect(() => {
     interval.current = setInterval(() => {
-      setCountdown(calculateCountdown());
+      setCountdown(calculateCountdown(targetDate));
     }, 1000);
     return () => clearInterval(interval.current);
   }, []);
@@ -35,6 +25,16 @@ const Countdown = () => {
   );
 };
 export default Countdown;
+
+function calculateCountdown(targetDate) {
+  const time = +targetDate - +new Date();
+  return {
+    days: Math.floor(time / (1000 * 60 * 60 * 24)),
+    hours: Math.floor((time / (1000 * 60 * 60)) % 24),
+    minutes: Math.floor((time / 1000 / 60) % 60),
+    seconds: Math.floor((time / 1000) % 60),
+  };
+}
 
 //countdown__container
 const Container = styled.div`
