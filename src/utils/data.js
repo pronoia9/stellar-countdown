@@ -3,9 +3,9 @@ import instagram from '/public/icon-instagram.svg';
 import pinterest from '/public/icon-pinterest.svg';
 
 export const socials = [
-  { url: 'http://facebook.com/', logo: facebook },
-  { url: 'http://pinterest.com/', logo: pinterest },
-  { url: 'http://instagram.com/', logo: instagram },
+  { title: 'facebook', url: 'http://facebook.com/', logo: facebook },
+  { title: 'pinterest', url: 'http://pinterest.com/', logo: pinterest },
+  { title: 'instagram', url: 'http://instagram.com/', logo: instagram },
 ];
 
 export const footer = {
