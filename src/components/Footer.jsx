@@ -1,4 +1,4 @@
-import { footer } from '../data/data';
+import { footer } from '../utils/data';
 
 export default function Footer() {
   const { url, name, challenge } = footer;

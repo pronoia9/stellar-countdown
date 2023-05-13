@@ -1,3 +1,5 @@
+import { logos } from '../utils/data';
+
 const Socials = () => {
   return <div>Socials</div>;
 };
