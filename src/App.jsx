@@ -16,8 +16,13 @@ export default App;
 
 const AppContainer = styled.div`
   width: 100%;
-  height: 100vh;
-  background: url(/pattern-hills.svg) bottom center no-repeat, url(/bg-stars.svg) no-repeat, linear-gradient(to bottom, #1e1f29, #231d2b);
+  min-height: 100vh;
+  background: url(/pattern-hills.svg) no-repeat bottom center, url(/bg-stars.svg) center center, linear-gradient(to bottom, #1e1f29, #241c2b);
+  background-size: contain;
+  display: grid;
+  justify-content: center;
+  justify-items: center;
+  grid-template-rows: repeat(3, auto);
 `;
 
 const Title = styled.h1`
