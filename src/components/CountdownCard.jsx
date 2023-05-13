@@ -10,6 +10,18 @@ const CountdownCard = ({ number, type }) => {
   );
 };
 
+/* 
+<div class='countdown__parent'>
+    <div class='countdown__top'>
+        <div></div>
+    </div>
+  
+    <div class='countdown__bottom'></div>
+  
+    <p class='countdown__text'>days</p>
+</div> 
+*/
+
 export default CountdownCard;
 
 const Container = styled.div`
@@ -20,10 +32,29 @@ const Container = styled.div`
   position: relative;
   transform-style: preserve-3d;
   width: clamp(4.375, 11vw, 9, 25rem);
+
+  &::before {
+    content: '';
+    background-color: #1a1a24; /* #141419 */
+    border-radius: 0.5rem;
+    height: 100%;
+    position: absolute;
+    top: 6%;
+    width: 100%;
+  }
 `;
 
 const Top = styled.div``;
 
 const Bottom = styled.div``;
 
-const Text = styled.div``;
+const Text = styled.div`
+  bottom: -3.5rem;
+  color: var(--color-primary-blue);
+  font-size: clamp(0.5rem, 1.1vw, 0.875rem);
+  letter-spacing: clamp(2px, 0.45vw, 0.5rem);
+  position: absolute;
+  text-align: center;
+  text-transform: uppercase;
+  width: 100%;
+`;
