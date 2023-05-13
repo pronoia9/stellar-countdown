@@ -13,3 +13,9 @@ export const footer = {
   name: 'Jay Ansin',
   challenge: 'https://www.frontendmentor.io/challenges/launch-countdown-timer-N0XkGfyz-',
 };
+
+export const getTargetDate = () => {
+  const currentDate = new Date();
+  const futureDate = new Date(currentDate.getTime() + 8 * 24 * 60 * 60 * 1000 + 23 * 60 * 60 * 1000 + 55 * 60 * 1000 + 41 * 1000);
+  return futureDate;
+};
