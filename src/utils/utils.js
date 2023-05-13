@@ -13,7 +13,6 @@ export const calculateCountdown = (targetDate) => ({
 });
 
 export const updateCountdown = (targetDate, type) => {
-  console.log('update', type);
   switch (type) {
     case 'days':
       return calculateDays(targetDate);
