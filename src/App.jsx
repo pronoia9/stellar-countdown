@@ -1,4 +1,15 @@
+import styled from 'styled-components';
+
+import { Footer } from './components/';
+
 const App = () => {
-  return <div>App</div>;
+  return (
+    <Container>
+      App
+      <Footer />
+    </Container>
+  );
 };
 export default App;
+
+const Container = styled.div``;
