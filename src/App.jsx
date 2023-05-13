@@ -1,14 +1,12 @@
 import styled from 'styled-components';
 
-import { Footer } from './components/';
+import { Countdown, Footer } from './components/';
 
 const App = () => {
   return (
     <AppContainer>
-      <ContentContainer>
-        <Title></Title>
-        <ContentWrapper></ContentWrapper>
-      </ContentContainer>
+      <Title>We're launching soon</Title>
+      <Countdown />
       <Footer />
     </AppContainer>
   );
@@ -21,8 +19,9 @@ const AppContainer = styled.div`
   background: url(/pattern-hills.svg) bottom center no-repeat, url(/bg-stars.svg) no-repeat, linear-gradient(to bottom, #1e1f29, #231d2b);
 `;
 
-const ContentContainer = styled.div``;
-
-const Title = styled.div``;
-
-const ContentWrapper = styled.div``;
+const Title = styled.h1`
+  h1 {
+    font-size: 1.0625rem;
+    text-transform: uppercase;
+  }
+`;
