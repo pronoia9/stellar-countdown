@@ -10,6 +10,16 @@
   --color-bg-gradient: hsl(272, 21%, 14%);
 }
 
-* {
-  font-family: 'Red Hat Text', sans-serif !important;
+html {
+  box-sizing: border-box;
+  font-size: 100%;
+}
+
+body {
+  font-family: 'Red Hat Text', sans-serif;
+  font-weight: 700;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
 }
