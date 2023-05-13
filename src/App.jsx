@@ -1,12 +1,13 @@
 import styled from 'styled-components';
 
-import { Countdown, Footer } from './components/';
+import { Countdown, Footer, Socials } from './components/';
 
 const App = () => {
   return (
     <AppContainer>
       <Title>We're launching soon</Title>
       <Countdown />
+      <Socials />
       <Footer />
     </AppContainer>
   );
