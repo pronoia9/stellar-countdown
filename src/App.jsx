@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 
-import './App.css';
 import { Countdown, Footer, Socials } from './components/';
 import { rem } from './utils/utils';
 
