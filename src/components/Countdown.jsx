@@ -1,11 +1,18 @@
+import { useEffect, useState } from 'react';
 import styled from 'styled-components';
+
 import CountdownCard from './CountdownCard';
+import { getTargetDate } from '../utils/data';
 
 const Countdown = () => {
+  const [date, setDate] = useState(null);
+  const [countdown, setCountdown] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+  useEffect(() => setDate(getTargetDate()), []);
+
   return (
     <Container>
-      {[8, 23, 55, 41].map((data, index) => (
-        <CountdownCard key={`${['day', 'hour', 'minute', 'second'][index]}-card`} number={data} type={['days', 'hours', 'minutes', 'seconds'][index]} />
+      {Object.values(countdown).map((data, index) => (
+        <CountdownCard key={`${Object.keys(countdown)[index]}-card`} number={data} type={Object.keys(countdown)[index]} />
       ))}
     </Container>
   );
