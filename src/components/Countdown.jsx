@@ -1,13 +1,30 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import styled from 'styled-components';
 
 import CountdownCard from './CountdownCard';
 import { getTargetDate } from '../utils/data';
 
 const Countdown = () => {
-  const [date, setDate] = useState(null);
-  const [countdown, setCountdown] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
-  useEffect(() => setDate(getTargetDate()), []);
+  const targetDate = getTargetDate();
+  const [countdown, setCountdown] = useState(calculateCountdown());
+  const interval = useRef();
+
+  function calculateCountdown() {
+    const time = +targetDate - +new Date();
+    return {
+      days: Math.floor(time / (1000 * 60 * 60 * 24)),
+      hours: Math.floor((time / (1000 * 60 * 60)) % 24),
+      minutes: Math.floor((time / 1000 / 60) % 60),
+      seconds: Math.floor((time / 1000) % 60),
+    };
+  }
+
+  useEffect(() => {
+    interval.current = setInterval(() => {
+      setCountdown(calculateCountdown());
+    }, 1000);
+    return () => clearInterval(interval.current);
+  }, []);
 
   return (
     <Container>
