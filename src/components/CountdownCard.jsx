@@ -1,11 +1,26 @@
+import { useState, useEffect, useRef } from 'react';
 import styled, { keyframes } from 'styled-components';
 
-const CountdownCard = ({ number, type }) => {
+import { updateCountdown } from '../utils/utils';
+
+const CountdownCard = ({ targetDate, number, type }) => {
+  const [count, setCount] = useState(number);
+  const interval = useRef();
+
+  useEffect(() => {
+    interval.current = setInterval(() => {
+      setCount(count => updateCountdown(targetDate, type));
+    }, 1000);
+    return () => clearInterval(interval.current);
+  }, []);
+
   return (
     <Container>
       <Top></Top>
       <Bottom></Bottom>
-      <Text>{type}</Text>
+      <Text>
+        {type} <br /> {count}
+      </Text>
     </Container>
   );
 };
