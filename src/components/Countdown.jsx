@@ -5,7 +5,7 @@ const Countdown = () => {
   return (
     <Container>
       {[8, 23, 55, 41].map((data, index) => (
-        <CountdownCard key={`${['day', 'hour', 'minute', 'second'][index]}-card`} number={data} />
+        <CountdownCard key={`${['day', 'hour', 'minute', 'second'][index]}-card`} number={data} type={['days', 'hours', 'minutes', 'seconds'][index]} />
       ))}
     </Container>
   );
