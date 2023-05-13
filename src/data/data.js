@@ -4,4 +4,8 @@ import pinterest from '/public/icon-pinterest.svg';
 
 export const logos = [facebook, pinterest, instagram];
 
-export const footer = { url: 'https://github.com/pronoia9', name: 'Jay Ansin' };
+export const footer = {
+  url: 'https://github.com/pronoia9',
+  name: 'Jay Ansin',
+  challenge: 'https://www.frontendmentor.io/challenges/launch-countdown-timer-N0XkGfyz-',
+};
