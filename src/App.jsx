@@ -22,9 +22,10 @@ const AppContainer = styled.div`
     linear-gradient(to bottom, var(--color-neutral-blackBlue), var(--color-bg-gradient));
   background-size: contain;
   display: grid;
+  grid-template-rows: repeat(3, auto);
   justify-content: center;
   justify-items: center;
-  grid-template-rows: repeat(3, auto);
+  padding: 8.5rem clamp(1.5rem, 5vw, 5rem) 2rem;
 `;
 
 const Title = styled.h1`
