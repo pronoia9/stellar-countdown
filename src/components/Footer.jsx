@@ -4,7 +4,7 @@ export default function Footer() {
   const { url, name, challenge } = footer;
 
   return (
-    <div class='attribution'>
+    <div className='attribution'>
       Challenge by
       <a href={challenge} target='_blank'>
         Frontend Mentor
