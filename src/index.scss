@@ -15,6 +15,12 @@ $countdown-letter-spacing: rem(2px);
   --color-neutral-blackBlue: #191a24; /* Very dark (mostly black) */
   --color-bg-gradient: #241c2b;
 
+  --primary-blue: hsl(237, 18%, 59%);
+  --primary-red: hsl(345, 95%, 68%);
+  --neutral-100: hsl(236, 21%, 26%);
+  --neutral-200: hsl(235, 16%, 14%);
+  --neutral-300: hsl(234, 17%, 12%);
+
   --font-family: 'Red Hat Text';
   --font-weight: 700;
   --font-weight-unit: 500;
@@ -26,14 +32,15 @@ $countdown-letter-spacing: rem(2px);
   --countdown-letter-spacing: #{$countdown-letter-spacing};
 }
 
-html {
+html, body {
+  width: 100%;
+  height: 100vh;
+  min-height: 100%;
   box-sizing: border-box;
-  font-size: 100%;
-}
-
-body {
-  font-family: 'Red Hat Text', sans-serif;
-  font-weight: 700;
+  background-color: var(--color-neutral-blackBlue);
+  font-size: var(--font-size-body);
+  font-family: var(--font-family);
+  font-weight: var(--font-weight);
 }
 
 *,
