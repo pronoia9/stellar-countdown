@@ -1,6 +1,6 @@
-import facebook from '/public/icon-facebook.svg';
-import instagram from '/public/icon-instagram.svg';
-import pinterest from '/public/icon-pinterest.svg';
+import facebook from '../assets/icon-facebook.svg';
+import instagram from '../assets/icon-instagram.svg';
+import pinterest from '../assets/icon-pinterest.svg';
 
 export const socials = [
   { title: 'facebook', url: 'http://facebook.com/', logo: facebook },

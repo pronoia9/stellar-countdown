@@ -9,7 +9,7 @@ const App = () => {
       <Title>We're launching soon</Title>
       <Countdown />
       <Socials />
-      <Footer />
+      {/* <Footer /> */}
     </AppContainer>
   );
 };
@@ -18,7 +18,7 @@ export default App;
 const AppContainer = styled.div`
   width: 100%;
   min-height: 100vh;
-  background: url(/pattern-hills.svg) no-repeat bottom center, url(/bg-stars.svg) center center,
+  background: url(/src/assets/pattern-hills.svg) no-repeat bottom center, url(/src/assets/bg-stars.svg) center center,
     linear-gradient(to bottom, var(--color-neutral-blackBlue), var(--color-bg-gradient));
   background-size: contain;
   display: grid;
