@@ -1,7 +1,7 @@
 import { useRef, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import Tick from '@pqina/flip';
-import '@pqina/flip/dist/flip.min.css';
+import { rem } from '../utils/utils';
 
 export default function CountdownCards ({ targetDate })  {
   const [tickValue, setTickValue] = useState(targetDate);
@@ -30,13 +30,13 @@ export default function CountdownCards ({ targetDate })  {
   }, [tickValue]);
 
   return (
-    <LeSigh className='tick'>
-      <CountdownContainer data-repeat='true' data-layout='horizontal fit' className='tick-group'>
-        <CountdownWrapper ref={divRef}>
+    <LeSigh className='LeSigh tick'>
+      <CountdownContainer className='CountdownContainer tick-group' data-repeat='true' data-layout='horizontal fit'>
+        <CountdownWrapper ref={divRef} className='CountdownWrapper'>
           {[['days'], ['hours'], ['mins', 'minutes'], ['secs', 'seconds']].map((data, i) => (
-            <CardContainer key={`card-${data[0]}`}>
-              <Card data-key={data[0]} data-transform='pad(00)' data-view='flip' />
-              <Text className='tick-text-inline'>{data[1] || data[0]}</Text>
+            <CardContainer className='CardContainer' key={`card-${data[0]}`}>
+              <Card className='Card' data-key={data[0]} data-transform='pad(00)' data-view='flip' />
+              <Text className='Text tick-text-inline'>{data[1] || data[0]}</Text>
             </CardContainer>
           ))}
         </CountdownWrapper>
@@ -45,13 +45,29 @@ export default function CountdownCards ({ targetDate })  {
   );
 };
 
-const LeSigh = styled.div``;
+const LeSigh = styled.div`
+  width: 100%;
+`;
 
-const CountdownContainer = styled.div``;
+const CountdownContainer = styled.div`
+  width: 100%;
+`;
 
-const CountdownWrapper = styled.div``;
+const CountdownWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: ${rem(15)};
+`;
 
-const CardContainer = styled.div``;
+const CardContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`;
 
 const Card = styled.span``;
 
