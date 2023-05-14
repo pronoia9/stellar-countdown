@@ -24,4 +24,7 @@ const AppContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 8.5rem clamp(1.5rem, 5vw, 5rem) 2rem;
+  font-size: var(--font-size-body);
+  font-family: var(--font-family);
+  font-weight: var(--font-weight);
 `;
