@@ -16,9 +16,7 @@ export default App;
 const AppContainer = styled.div`
   width: 100%;
   min-height: 100vh;
-  background: url(/src/assets/pattern-hills.svg) no-repeat bottom center, url(/src/assets/bg-stars.svg) center center,
-    linear-gradient(to bottom, var(--color-neutral-blackBlue), var(--color-bg-gradient));
-  background-size: contain;
+  background: url(/src/assets/pattern-hills.svg) no-repeat 80% 100%, url(/src/assets/bg-stars.svg) no-repeat center center, linear-gradient(to bottom, var(--color-neutral-blackBlue), var(--color-bg-gradient));
   display: flex;
   flex-direction: column;
   justify-content: space-between;
