@@ -3,48 +3,80 @@ import Tick from '@pqina/flip';
 import '@pqina/flip/dist/flip.min.css';
 
 import { getTargetDate } from '../utils/data';
+import styled from 'styled-components';
 
-export const FlipDate = ({ value }) => {
+export const FlipDate = ({ targetDate = getTargetDate() }) => {
+  const [tickValue, setTickValue] = useState();
   const divRef = useRef(),
     tickRef = useRef();
-  const [tickValue, setTickValue] = useState(value);
 
   useEffect(() => {
     const didInit = (tick) => {
       tickRef.current = tick;
     };
-
-    const currDiv = divRef.current;
-    const tickValue = tickRef.current;
-    Tick.DOM.create(currDiv, { value, didInit });
-
-    return () => Tick.DOM.destroy(tickValue);
-  }, [value]);
+    Tick.DOM.create(divRef.current, { value: null, didInit });
+    return () => Tick.DOM.destroy(tickRef.current);
+  }, []);
 
   useEffect(() => {
-    const counter = Tick.count.down(getTargetDate(), {
+    const counter = Tick.count.down(targetDate, {
       format: ['d', 'h', 'm', 's'],
     });
-
-    // When the counter updates, update React's state value
     counter.onupdate = (value) => {
-      setTickValue(value.map((val) => (val < 10 ? `0${val}` : `${val}`)));
+      setTickValue(value.map((num) => (num < 10 ? `0${num}` : `${num}`)));
     };
-
     return () => {
       counter.timer?.stop();
     };
-  }, [value]);
+  }, []);
 
   useEffect(() => {
     if (tickRef.current) tickRef.current.value = tickValue;
   }, [tickValue]);
 
   return (
-    <div ref={divRef} className='tick'>
-      <div data-repeat='true'>
-        <span data-view='flip' />
-      </div>
-    </div>
+    <>
+      <Container ref={divRef} className='tick'>
+        <Wrapper data-repeat='true'>
+          <Card data-view='flip' />
+        </Wrapper>
+      </Container>
+
+      <TextContainer>
+        <Text>Days</Text>
+        <Text>Hours</Text>
+        <Text>Minutes</Text>
+        <Text>Seconds</Text>
+      </TextContainer>
+    </>
   );
 };
+
+const Container = styled.div`
+`;
+
+const Wrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+`;
+
+const Card = styled.span`
+  .flip,
+  .tick-flip {
+    margin: 0;
+    border-radius: 0px;
+  }
+`;
+
+const TextContainer = styled.div``;
+
+const Text = styled.div`
+  width: 100%;
+  color: var(--color-primary-blue);
+  font-size: clamp(0.5rem, 1.1vw, 0.875rem);
+  letter-spacing: clamp(2px, 0.45vw, 0.5rem);
+  text-align: center;
+  text-transform: uppercase;
+`;
