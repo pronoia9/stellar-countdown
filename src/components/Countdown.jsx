@@ -41,6 +41,6 @@ const Title = styled.h1`
   color: var(--color-neutral-white);
   text-transform: uppercase;
   font-size: clamp(${rem(20)}, 2.5vw, 1.375rem);
-  letter-spacing: 0cap.5rem;
+  letter-spacing: 0.75rem;
   text-align: center;
 `;
