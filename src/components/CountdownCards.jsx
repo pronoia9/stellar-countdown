@@ -30,27 +30,29 @@ export default function CountdownCards ({ targetDate })  {
   }, [tickValue]);
 
   return (
-    <div className='tick'>
-      <div data-repeat='true' data-layout='horizontal fit' className='tick-group'>
-        <div ref={divRef}>
-          <div>
-            <span data-key='days' data-transform='pad(00)' data-view='flip' />
-            <span className='tick-text-inline'>Days</span>
-          </div>
-          <div>
-            <span data-key='hours' data-transform='pad(00)' data-view='flip' />
-            <span className='tick-text-inline'>Hours</span>
-          </div>
-          <div>
-            <span data-key='mins' data-transform='pad(00)' data-view='flip' />
-            <span className='tick-text-inline'>Minutes</span>
-          </div>
-          <div>
-            <span data-key='secs' data-transform='pad(00)' data-view='flip' />
-            <span className='tick-text-inline'>Seconds</span>
-          </div>
-        </div>
-      </div>
-    </div>
+    <LeSigh className='tick'>
+      <CountdownContainer data-repeat='true' data-layout='horizontal fit' className='tick-group'>
+        <CountdownWrapper ref={divRef}>
+          {[['days'], ['hours'], ['mins', 'minutes'], ['secs', 'seconds']].map((data, i) => (
+            <CardContainer key={`card-${data[0]}`}>
+              <Card data-key={data[0]} data-transform='pad(00)' data-view='flip' />
+              <Text className='tick-text-inline'>{data[1] || data[0]}</Text>
+            </CardContainer>
+          ))}
+        </CountdownWrapper>
+      </CountdownContainer>
+    </LeSigh>
   );
 };
+
+const LeSigh = styled.div``;
+
+const CountdownContainer = styled.div``;
+
+const CountdownWrapper = styled.div``;
+
+const CardContainer = styled.div``;
+
+const Card = styled.span``;
+
+const Text = styled.span``;
