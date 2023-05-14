@@ -1,22 +1,13 @@
-import { useEffect, useState, useRef } from 'react';
 import styled from 'styled-components';
 
-import CountdownCard from './CountdownCard';
-import { getTargetDate } from '../utils/data';
-import { calculateCountdown, rem } from '../utils/utils';
+import { rem } from '../utils/utils';
+import { FlipDate } from './FlipDate';
 
 const Countdown = () => {
-  const targetDate = getTargetDate();
-  const [countdown, setCountdown] = useState(calculateCountdown(targetDate));
-
   return (
     <Container>
       <Title>We're launching soon</Title>
-      <Wrapper>
-        {Object.values(countdown).map((data, index) => (
-          <CountdownCard targetDate={targetDate} key={`${Object.keys(countdown)[index]}-card`} number={data} type={Object.keys(countdown)[index]} />
-        ))}
-      </Wrapper>
+      <FlipDate />
     </Container>
   );
 };
@@ -29,12 +20,6 @@ const Container = styled.div`
   justify-content: space-between;
   margin-bottom: 2rem;
   min-width: clamp(20.625rem, 51vw, 43rem);
-`;
-
-const Wrapper = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
 `;
 
 const Title = styled.h1`
