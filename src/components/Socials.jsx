@@ -1,19 +1,13 @@
 import styled from 'styled-components';
 import { socials } from '../utils/data';
 
-const Logo = ({ title, url, logo }) => (
-  <Wrapper>
-    <a href={url} target='_blank'>
-      <img src={logo} alt={`logo-${title}`} />
-    </a>
-  </Wrapper>
-);
+const Logo = ({ url, font }) => <Link href={url} target='_blank' className={font} />;
 
 const Socials = () => {
   return (
     <Container>
       {socials.map((data, i) => (
-        <Logo key={`socials-${i}`} {...data} />
+        <Logo key={`socials-${data.title}`} {...data} />
       ))}
     </Container>
   );
@@ -28,4 +22,12 @@ const Container = styled.div`
   gap: 2rem;
 `;
 
-const Wrapper = styled.div``;
+const Link = styled.a`
+  color: var(--color-primary-blue);
+  font-size: 24px;
+  text-decoration: none;
+
+  &:hover {
+    color: var(--color-primary-red);
+  }
+`;
