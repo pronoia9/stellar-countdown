@@ -1,52 +1,31 @@
-import React, { useRef, useEffect, useState } from 'react';
+import { useRef, useEffect, useState } from 'react';
+import styled from 'styled-components';
 import Tick from '@pqina/flip';
+import '@pqina/flip/dist/flip.min.css';
 
-export const EventCountdown = ({ value }) => {
-  const divRef = useRef();
-  const tickRef = useRef();
-
-  const [tickValue, setTickValue] = useState(value);
+export default function CountdownCards ({ targetDate })  {
+  const [tickValue, setTickValue] = useState(targetDate);
+  const divRef = useRef(), tickRef = useRef();
 
   // Make the Tick instance and store it in the refs
   useEffect(() => {
-    const didInit = (tick) => {
-      tickRef.current = tick;
-    };
-
-    const currDiv = divRef.current;
-    const tickValue = tickRef.current;
-    Tick.DOM.create(currDiv, {
-      value,
-      didInit,
-    });
-    return () => Tick.DOM.destroy(tickValue);
-  }, [value]);
+    const didInit = (tick) => { tickRef.current = tick; };
+    Tick.DOM.create(divRef.current, { value: targetDate, didInit, });
+    return () => Tick.DOM.destroy(tickRef.current);
+  }, [targetDate]);
 
   // Start the Tick.down process
   useEffect(() => {
-    const counter = Tick.count.down(value, {
-      format: ['d', 'h', 'm', 's'],
-    });
-
+    const counter = Tick.count.down(targetDate, { format: ['d', 'h', 'm', 's'], });
     // When the counter updates, update React's state value
-    counter.onupdate = function (value) {
-      setTickValue(value);
-    };
-
-    return () => {
-      counter?.timer?.stop();
-    };
-  }, [value]);
+    counter.onupdate = function (value) { setTickValue(value); };
+    return () => { counter?.timer?.stop(); };
+  }, [targetDate]);
 
   // When the tickValue is updated, update the Tick.DOM element
   useEffect(() => {
     if (tickRef.current) {
-      tickRef.current.value = {
-        days: tickValue[0],
-        hours: tickValue[1],
-        mins: tickValue[2],
-        secs: tickValue[3],
-      };
+      tickRef.current.value = { days: tickValue[0], hours: tickValue[1], mins: tickValue[2], secs: tickValue[3], };
     }
   }, [tickValue]);
 

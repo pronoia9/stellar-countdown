@@ -1,23 +1,24 @@
 import styled from 'styled-components';
 
-import { FlipDate } from './FlipDate';
 import { rem, getTargetDate } from '../utils/utils';
+import { CountdownCards } from './';
 
 const Countdown = () => {
+  const targetDate = getTargetDate();
+
   return (
     <Container>
       <Title>We're launching soon</Title>
-      <FlipDate targetDate={getTargetDate()} />
+      <CountdownCards targetDate={targetDate.toISOString()} />
     </Container>
   );
 };
 export default Countdown;
 
-//countdown__container
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  gap: 2rem;
   margin-bottom: 2rem;
   min-width: clamp(20.625rem, 51vw, 43rem);
 `;
