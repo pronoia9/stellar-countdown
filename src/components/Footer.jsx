@@ -27,15 +27,21 @@ const Container = styled.div`
 `;
 
 const Attribution = styled.div`
-  color: var(--color-neutral-blackblue);
+  color: var(--color-primary-blue);
   font-weight: 400;
+  font-size: 0.75rem;
+  opacity: 0.5;
 
   a {
-    color: var(--color-primary-blue);
+    color: var(--color-primary-red);
     text-decoration: none;
 
-    &:hover {}
+    &:hover {
+      opacity: 0.75;
+    }
 
-    &:visited {}
+    &:visited {
+      color: var(--color-neutral-blue);
+    }
   }
 `;
