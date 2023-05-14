@@ -2,28 +2,30 @@ import styled from 'styled-components';
 import { socials } from '../utils/data';
 
 const Logo = ({ title, url, logo }) => (
-  <ListItem>
+  <Wrapper>
     <a href={url} target='_blank'>
       <img src={logo} alt={`logo-${title}`} />
     </a>
-  </ListItem>
+  </Wrapper>
 );
 
 const Socials = () => {
   return (
     <Container>
-      <List>
-        {socials.map((data, i) => (
-          <Logo key={`socials-${i}`} {...data} />
-        ))}
-      </List>
+      {socials.map((data, i) => (
+        <Logo key={`socials-${i}`} {...data} />
+      ))}
     </Container>
   );
 };
 export default Socials;
 
-const Container = styled.div``;
+const Container = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+`;
 
-const List = styled.ul``;
-
-const ListItem = styled.li``;
+const Wrapper = styled.div``;
