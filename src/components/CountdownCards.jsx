@@ -58,6 +58,7 @@ const CountdownWrapper = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: center;
   flex-wrap: wrap;
   gap: ${rem(15)};
 `;
@@ -71,4 +72,11 @@ const CardContainer = styled.div`
 
 const Card = styled.span``;
 
-const Text = styled.span``;
+const Text = styled.span`
+  width: 100%;
+  color: var(--color-primary-blue);
+  font-size: clamp(0.5rem, 1.1vw, 0.875rem);
+  letter-spacing: clamp(2px, 0.45vw, 0.5rem);
+  text-align: center;
+  text-transform: uppercase;
+`;
