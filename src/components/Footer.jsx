@@ -10,7 +10,7 @@ export default function Footer() {
     <Container>
       <Socials />
       <Attribution>
-        Challenge by
+        Challenge by{' '}
         <a href={challenge} target='_blank'>
           Frontend Mentor
         </a>
@@ -20,6 +20,22 @@ export default function Footer() {
   );
 }
 
-const Container = styled.div``;
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+`;
 
-const Attribution = styled.div``;
+const Attribution = styled.div`
+  color: var(--color-neutral-white);
+  font-weight: 400;
+  
+  a {
+    color: var(--color-primary-red);
+    text-decoration: none;
+
+    &:hover {}
+
+    &:visited {}
+  }
+`;
