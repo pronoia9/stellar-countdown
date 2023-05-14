@@ -27,11 +27,11 @@ const Container = styled.div`
 `;
 
 const Attribution = styled.div`
-  color: var(--color-neutral-white);
+  color: var(--color-neutral-blackblue);
   font-weight: 400;
-  
+
   a {
-    color: var(--color-primary-red);
+    color: var(--color-primary-blue);
     text-decoration: none;
 
     &:hover {}
