@@ -1,13 +1,13 @@
 import styled from 'styled-components';
 
-import { rem } from '../utils/utils';
 import { FlipDate } from './FlipDate';
+import { rem, getTargetDate } from '../utils/utils';
 
 const Countdown = () => {
   return (
     <Container>
       <Title>We're launching soon</Title>
-      <FlipDate />
+      <FlipDate targetDate={getTargetDate()} />
     </Container>
   );
 };

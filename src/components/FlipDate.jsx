@@ -2,10 +2,11 @@ import React, { useRef, useEffect, useState } from 'react';
 import Tick from '@pqina/flip';
 import '@pqina/flip/dist/flip.min.css';
 
-import { getTargetDate } from '../utils/data';
 import styled from 'styled-components';
 
-export const FlipDate = ({ targetDate = getTargetDate() }) => {
+import { getTargetDate } from '../utils/utils';
+
+export const FlipDate = ({ targetDate = new Date() }) => {
   const [tickValue, setTickValue] = useState();
   const divRef = useRef(),
     tickRef = useRef();
