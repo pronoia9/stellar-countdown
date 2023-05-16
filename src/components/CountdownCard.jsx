@@ -56,7 +56,7 @@ const Container = styled.div`
   width: clamp(4.375rem, 11vw, 9.25rem);
   height: clamp(4.125rem, 11vw, 8.625rem);
   max-width: 100%;
-  background-color: hsl(233, 23%, 21%);
+  background-color: var(--color-fold-bg);
   border-radius: 0.5rem;
   box-shadow: 0 0.65rem var(--color-neutral-blackBlue);
   /* overflow: hidden; */
@@ -185,7 +185,7 @@ const Container = styled.div`
   .countdown-card-upper span,
   .fold,
   .fold span {
-    background-color: hsl(233, 23%, 21%);
+    background-color: var(--color-fold-bg);
   }
 
   /********************   ANIMATION (START)   ********************/
