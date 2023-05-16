@@ -40,28 +40,6 @@ export const calculateCountdown = (targetDate, state) => {
       minutes: `${minutes < 10 ? '0' : ''}${minutes}`,
       seconds: `${seconds < 10 ? '0' : ''}${seconds}`,
     },
-    // check which components got updated
     shuffle: { days: false, hours: false, minutes: false, seconds: false },
   };
-  // return {
-  //   days: calculateDays(targetDate),
-  //   hours: calculateHours(targetDate),
-  //   minutes: calculateMinutes(targetDate),
-  //   seconds: calculateSeconds(targetDate),
-  // };
-};
-
-export const updateCountdown = (targetDate, type) => {
-  switch (type) {
-    case 'days':
-      return calculateDays(targetDate);
-    case 'hours':
-      return calculateHours(targetDate);
-    case 'minutes':
-      return calculateMinutes(targetDate);
-    case 'seconds':
-      return calculateSeconds(targetDate);
-    default:
-      break;
-  }
 };
