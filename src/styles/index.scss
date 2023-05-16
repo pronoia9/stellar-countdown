@@ -1,21 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@400;500;700&display=swap');
-@import '../utils/utils.scss';
-
-// CALCULATIONS
-$font-size-title: rem(18px);
-$font-size-digits: rem(30px);
-$font-size-unit: rem(7px);
-$title-letter-spacing: rem(5px);
-$countdown-letter-spacing: rem(2px);
-$card-size: rem(70px);
-$card-points-size: rem(6px);
-$card-points-top: rem((70px / 2) - 3px);
-$card-points-offset: rem(-3px);
-$countdown-gap: rem(15px);
-$countdown-units-mt: rem(10px);
-$countdown-border-radius: rem(5px);
-$countdown-mt: rem(57px);
-$title-mt: rem(148px);
 
 #root {
   // COLORS
@@ -26,26 +9,11 @@ $title-mt: rem(148px);
   --color-neutral-darkBlue: #1e1f29; /* Very dark blue */
   --color-neutral-blackBlue: #191a24; /* Very dark (mostly black) */
   --color-bg-gradient: #241c2b;
-  // FONTS
+
   --font-family: 'Red Hat Text';
   --font-weight: 700;
   --font-weight-unit: 500;
-  --font-size-body: 14px;
-  --font-size-title: #{$font-size-title};
-  --font-size-digits: #{$font-size-digits};
-  --font-size-unit: #{$font-size-unit};
-  --title-letter-spacing: #{$title-letter-spacing};
-  --countdown-letter-spacing: #{$countdown-letter-spacing};
-  // CARDS
-  --card-size: #{$card-size};
-  --card-points-size: #{$card-points-size};
-  --card-points-top: #{$card-points-top};
-  --card-points-offset: #{$card-points-offset};
-  --countdown-gap: #{$countdown-gap};
-  --countdown-units-mt: #{$countdown-units-mt};
-  --countdown-border-radius: #{$countdown-border-radius};
-  --countdown-mt: #{$countdown-mt};
-  --title-mt: #{$title-mt};
+  --font-size: 14px;
 }
 
 html,
@@ -55,42 +23,10 @@ body {
   min-height: 100%;
   box-sizing: border-box;
   background-color: var(--color-neutral-blackBlue);
-  font-size: var(--font-size-body);
-  font-family: var(--font-family);
-  font-weight: var(--font-weight);
 }
 
 *,
 *::before,
 *::after {
   box-sizing: inherit;
-}
-
-@media screen and (min-width: 1024px) {
-  :root {
-    // FONTS
-    --font-weight-unit: 700;
-    --font-size-title: calc(#{$font-size-title} * 1.15);
-    --font-size-digits: calc(#{$font-size-digits} * 2.25);
-    --font-size-unit: calc(#{$font-size-unit} * 2);
-    --title-letter-spacing: calc(#{$title-letter-spacing} * 1.75);
-    --countdown-letter-spacing: calc(#{$countdown-letter-spacing} * 2.5);
-    // CARDS
-    --card-size: calc(#{$card-size} * 2);
-    --card-points-size: calc(#{$card-points-size} * 2);
-    --card-points-top: calc(#{$card-points-top} * 2);
-    --card-points-offset: calc(#{$card-points-offset} * 2);
-    --countdown-gap: calc(#{$countdown-gap} * 2);
-    --countdown-units-mt: calc(#{$countdown-units-mt} * 2);
-    --countdown-border-radius: calc(#{$countdown-border-radius} * 2);
-  }
-}
-
-@media screen and (min-width: 1440px) {
-  :root {
-    --countdown-gap: calc(#{$countdown-gap} * 2.25);
-    --countdown-units-mt: calc(#{$countdown-units-mt} * 2.5);
-    --countdown-mt: calc(#{$countdown-mt} * 1.75);
-    --title-mt: calc(#{$title-mt} - 12px);
-  }
 }
