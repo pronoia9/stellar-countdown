@@ -11,12 +11,45 @@ export const calculateHours = (targetDate) => Math.floor(((+targetDate - +new Da
 export const calculateMinutes = (targetDate) => Math.floor(((+targetDate - +new Date()) / 1000 / 60) % 60);
 export const calculateSeconds = (targetDate) => Math.floor(((+targetDate - +new Date()) / 1000) % 60);
 
-export const calculateCountdown = (targetDate) => ({
-  days: calculateDays(targetDate),
-  hours: calculateHours(targetDate),
-  minutes: calculateMinutes(targetDate),
-  seconds: calculateSeconds(targetDate),
-});
+export const calculateCountdown = (targetDate, state) => {
+  const days = calculateDays(targetDate),
+    hours = calculateHours(targetDate),
+    minutes = calculateMinutes(targetDate),
+    seconds = calculateSeconds(targetDate);
+
+  if (state) {
+    return {
+      count: {
+        days: `${days < 10 ? '0' : ''}${days}`,
+        hours: `${hours < 10 ? '0' : ''}${hours}`,
+        minutes: `${minutes < 10 ? '0' : ''}${minutes}`,
+        seconds: `${seconds < 10 ? '0' : ''}${seconds}`,
+      },
+      shuffle: {
+        days: days !== parseInt(state.count.days) ? !state.shuffle.days : state.shuffle.days,
+        hours: hours !== parseInt(state.count.hours) ? !state.shuffle.hours : state.shuffle.hours,
+        minutes: minutes !== parseInt(state.count.minutes) ? !state.shuffle.minutes : state.shuffle.minutes,
+        seconds: seconds !== parseInt(state.count.seconds) ? !state.shuffle.seconds : state.shuffle.seconds,
+      },
+    };
+  }
+  return {
+    count: {
+      days: `${days < 10 ? '0' : ''}${days}`,
+      hours: `${hours < 10 ? '0' : ''}${hours}`,
+      minutes: `${minutes < 10 ? '0' : ''}${minutes}`,
+      seconds: `${seconds < 10 ? '0' : ''}${seconds}`,
+    },
+    // check which components got updated
+    shuffle: { days: false, hours: false, minutes: false, seconds: false },
+  };
+  // return {
+  //   days: calculateDays(targetDate),
+  //   hours: calculateHours(targetDate),
+  //   minutes: calculateMinutes(targetDate),
+  //   seconds: calculateSeconds(targetDate),
+  // };
+};
 
 export const updateCountdown = (targetDate, type) => {
   switch (type) {
