@@ -6,19 +6,15 @@ const Card = ({ number, style, animation }) => (
   </div>
 );
 
-export default function CountdownCard({ number = '??', shuffle = false, label = '???' }) {
-  let numberPrev = `${parseInt(number) + 1}`.padStart(2, '0');
-  // shuffle numbers
-  const number1 = shuffle ? numberPrev : number, number2 = !shuffle ? numberPrev : number;
-  // shuffle animations
-  const animation1 = shuffle ? 'fold' : 'unfold', animation2 = !shuffle ? 'fold' : 'unfold';
+export default function CountdownCard({ number = '??', shuffle = false, label = 'TBD' }) {
+  let numberBottom = `${parseInt(number) + 1}`.padStart(2, '0');
 
   return (
     <Container className='countdown-cards-container'>
       <Card number={number} style='countdown-card-upper' />
-      <Card number={numberPrev} style='countdown-card-lower' />
-      <Card number={number1} style={animation1} animation={true} />
-      <Card number={number2} style={animation2} animation={true} />
+      <Card number={numberBottom} style='countdown-card-lower' />
+      <Card number={shuffle ? numberBottom : number} style={shuffle ? 'fold' : 'unfold'} animation={true} />
+      <Card number={!shuffle ? numberBottom : number} style={!shuffle ? 'fold' : 'unfold'} animation={true} />
       <Text>{label}</Text>
     </Container>
   );
@@ -43,7 +39,7 @@ const Container = styled.div`
   background-color: var(--color-fold-bg);
   border-radius: 0.5rem;
   box-shadow: 0 0.65rem var(--color-neutral-blackBlue);
-  overflow: hidden;
+  /* overflow: hidden; */
   perspective-origin: 50% 50%;
   perspective: 300px;
 
