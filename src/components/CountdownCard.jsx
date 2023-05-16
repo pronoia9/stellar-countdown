@@ -1,25 +1,15 @@
 import styled, { keyframes } from 'styled-components';
 
-// function components
-const AnimatedCard = ({ animation, digit }) => (
-  <div className={`countdown-card ${animation}`}>
-    <span>{digit}</span>
-  </div>
-);
-const StaticCard = ({ position, digit }) => (
-  <div className={position}>
+const Card = ({ digit, style, animation }) => (
+  <div className={`${animation ? 'countdown-card ' : ''}${style}`}>
     <span>{digit}</span>
   </div>
 );
 
-export default function CountdownCard({ digit = '??', shuffle = false, unit = '??', label = 'TBD' }) {
+export default function CountdownCard({ digit = '??', shuffle = false, label = '???' }) {
   // assign digit values
   let currentDigit = digit;
   let previousDigit = parseInt(digit) + 1;
-
-  // to prevent a negative value
-  if (unit !== 'hours') previousDigit = previousDigit === -1 ? 59 : previousDigit;
-  else previousDigit = previousDigit === -1 ? 23 : previousDigit;
 
   // shuffle digits
   const digit1 = shuffle ? previousDigit : currentDigit;
@@ -31,10 +21,10 @@ export default function CountdownCard({ digit = '??', shuffle = false, unit = '?
 
   return (
     <Container className='countdown-cards-container'>
-      <StaticCard position={'countdown-card-upper'} digit={currentDigit} />
-      <StaticCard position={'countdown-card-lower'} digit={previousDigit} />
-      <AnimatedCard digit={digit1} animation={animation1} />
-      <AnimatedCard digit={digit2} animation={animation2} />
+      <Card digit={currentDigit} style='countdown-card-upper' />
+      <Card digit={previousDigit} style='countdown-card-lower' />
+      <Card digit={digit1} style={animation1} animation={true} />
+      <Card digit={digit2} style={animation2} animation={true} />
       <Text>{label}</Text>
     </Container>
   );
@@ -59,7 +49,7 @@ const Container = styled.div`
   background-color: var(--color-fold-bg);
   border-radius: 0.5rem;
   box-shadow: 0 0.65rem var(--color-neutral-blackBlue);
-  /* overflow: hidden; */
+  overflow: hidden;
   perspective-origin: 50% 50%;
   perspective: 300px;
 
