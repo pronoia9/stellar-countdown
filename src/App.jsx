@@ -5,24 +5,34 @@ import { rem } from './utils/utils';
 
 const App = () => {
   return (
-    <AppContainer>
-      <Countdown />
-      <Footer />
-    </AppContainer>
+    <Container>
+      <Wrapper>
+        <Countdown />
+        <Footer />
+      </Wrapper>
+    </Container>
   );
 };
 export default App;
 
-const AppContainer = styled.div`
+const Container = styled.div`
   width: 100%;
-  min-height: 100vh;
-  background: url(/src/assets/pattern-hills.svg) no-repeat 80% 100%, url(/src/assets/bg-stars.svg) no-repeat center center, linear-gradient(to bottom, var(--color-neutral-blackBlue), var(--color-bg-gradient));
+  height: 100vh;
+  background: url(/src/assets/bg-stars.svg) center center, linear-gradient(to bottom, var(--color-neutral-blackBlue), var(--color-bg-gradient));
+  background-size: contain;
+  font-size: var(--font-size-body);
+  font-family: var(--font-family);
+  font-weight: var(--font-weight);
+`;
+
+const Wrapper = styled.div`
+  width: 100%;
+  height: 100vh;
+  background: url(/src/assets/pattern-hills.svg) no-repeat bottom center;
+  background-size: contain;
+  padding: 8.5rem clamp(1.5rem, 5vw, 5rem) 0.5rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  padding: 8.5rem clamp(1.5rem, 5vw, 5rem) 0.5rem;
-  font-size: var(--font-size-body);
-  font-family: var(--font-family);
-  font-weight: var(--font-weight);
 `;
