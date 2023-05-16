@@ -1,30 +1,24 @@
 import styled, { keyframes } from 'styled-components';
 
-const Card = ({ digit, style, animation }) => (
+const Card = ({ number, style, animation }) => (
   <div className={`${animation ? 'countdown-card ' : ''}${style}`}>
-    <span>{digit}</span>
+    <span>{number}</span>
   </div>
 );
 
-export default function CountdownCard({ digit = '??', shuffle = false, label = '???' }) {
-  // assign digit values
-  let currentDigit = digit;
-  let previousDigit = parseInt(digit) + 1;
-
-  // shuffle digits
-  const digit1 = shuffle ? previousDigit : currentDigit;
-  const digit2 = !shuffle ? previousDigit : currentDigit;
-
+export default function CountdownCard({ number = '??', shuffle = false, label = '???' }) {
+  let numberPrev = `${parseInt(number) + 1}`.padStart(2, '0');
+  // shuffle numbers
+  const number1 = shuffle ? numberPrev : number, number2 = !shuffle ? numberPrev : number;
   // shuffle animations
-  const animation1 = shuffle ? 'fold' : 'unfold';
-  const animation2 = !shuffle ? 'fold' : 'unfold';
+  const animation1 = shuffle ? 'fold' : 'unfold', animation2 = !shuffle ? 'fold' : 'unfold';
 
   return (
     <Container className='countdown-cards-container'>
-      <Card digit={currentDigit} style='countdown-card-upper' />
-      <Card digit={previousDigit} style='countdown-card-lower' />
-      <Card digit={digit1} style={animation1} animation={true} />
-      <Card digit={digit2} style={animation2} animation={true} />
+      <Card number={number} style='countdown-card-upper' />
+      <Card number={numberPrev} style='countdown-card-lower' />
+      <Card number={number1} style={animation1} animation={true} />
+      <Card number={number2} style={animation2} animation={true} />
       <Text>{label}</Text>
     </Container>
   );
