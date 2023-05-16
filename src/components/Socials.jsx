@@ -24,7 +24,7 @@ const Container = styled.div`
 
 const Link = styled.a`
   color: var(--color-primary-blue);
-  font-size: 24px;
+  font-size: 1.75rem;
   text-decoration: none;
 
   &:hover {
