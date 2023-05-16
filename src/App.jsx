@@ -18,7 +18,7 @@ export default App;
 const Container = styled.div`
   width: 100%;
   height: 100vh;
-  background: url(/src/assets/bg-stars.svg) center center, linear-gradient(to bottom, var(--color-neutral-blackBlue), var(--color-bg-gradient));
+  background: url('/src/assets/bg-stars.svg') center center, linear-gradient(to bottom, var(--color-neutral-blackBlue), var(--color-bg-gradient));
   background-size: contain;
   font-size: var(--font-size-body);
   font-family: var(--font-family);
@@ -28,7 +28,7 @@ const Container = styled.div`
 const Wrapper = styled.div`
   width: 100%;
   height: 100vh;
-  background: url(/src/assets/pattern-hills.svg) no-repeat bottom center;
+  background: url('/src/assets/pattern-hills.svg') no-repeat bottom center;
   background-size: contain;
   /* padding: 8.5rem clamp(1.5rem, 5vw, 5rem) 0.5rem;
   display: flex;
