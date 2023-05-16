@@ -56,22 +56,12 @@ const Container = styled.div`
   width: clamp(4.375rem, 11vw, 9.25rem);
   height: clamp(4.125rem, 11vw, 8.625rem);
   max-width: 100%;
-  margin: 0 1rem;
-  /* padding: 1.5rem 0.8rem; */
   background-color: hsl(233, 23%, 21%);
   border-radius: 0.5rem;
   box-shadow: 0 0.65rem var(--color-neutral-blackBlue);
   /* overflow: hidden; */
   perspective-origin: 50% 50%;
   perspective: 300px;
-
-  &:first-child {
-    margin-left: 0;
-  }
-
-  &:last-child {
-    margin-right: 0;
-  }
 
   * {
     background-color: var(--color-neutral-blue);
@@ -110,8 +100,6 @@ const Container = styled.div`
       align-items: flex-start;
       transform-origin: 50% 0%;
       transform: rotateX(180deg);
-      /* border: 0.5px solid yellow; */
-      /* border-top: 0.5px solid red; */
       z-index: 10 !important;
     }
 
@@ -120,8 +108,6 @@ const Container = styled.div`
       align-items: flex-end;
       transform-origin: 50% 100%;
       transform: rotateX(0deg);
-      /* border: 0.5px solid green; */
-      /* border-bottom: 0.5px solid blue; */
       z-index: 10 !important;
     }
   }
@@ -130,8 +116,6 @@ const Container = styled.div`
   .fold,
   .countdown-card-lower,
   .unfold {
-    /* padding: 1.5rem 0.8rem; */
-    padding: 0 1rem;
     box-sizing: border-box;
   }
 
@@ -159,7 +143,6 @@ const Container = styled.div`
   .unfold {
     border-bottom-left-radius: 0.5rem;
     border-bottom-right-radius: 0.5rem;
-    margin-bottom: 1.5rem;
     background-color: var(--color-neutral-blue);
 
     span {
