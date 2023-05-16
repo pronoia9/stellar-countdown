@@ -42,7 +42,7 @@ const Attribution = styled.div`
     }
 
     &:visited {
-      color: var(--color-neutral-blue);
+      /* color: var(--color-neutral-blue); */
     }
   }
 `;
