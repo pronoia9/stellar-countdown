@@ -15,7 +15,7 @@ const StaticCard = ({ position, digit }) => (
 export default function CountdownCard({ digit = '??', shuffle = false, unit = '', label = 'TBD' }) {
   // assign digit values
   let currentDigit = digit;
-  let previousDigit = digit + 1;
+  let previousDigit = parseInt(digit) + 1;
 
   // to prevent a negative value
   if (unit !== 'hours') previousDigit = previousDigit === -1 ? 59 : previousDigit;
