@@ -12,7 +12,7 @@ const StaticCard = ({ position, digit }) => (
   </div>
 );
 
-export default function CountdownCard({ digit = '??', shuffle = false, unit = '', label = 'TBD' }) {
+export default function CountdownCard({ digit = '??', shuffle = false, unit = '??', label = 'TBD' }) {
   // assign digit values
   let currentDigit = digit;
   let previousDigit = parseInt(digit) + 1;
@@ -35,7 +35,7 @@ export default function CountdownCard({ digit = '??', shuffle = false, unit = ''
       <StaticCard position={'countdown-card-lower'} digit={previousDigit} />
       <AnimatedCard digit={digit1} animation={animation1} />
       <AnimatedCard digit={digit2} animation={animation2} />
-      <p>{label}</p>
+      <Text>{label}</Text>
     </Container>
   );
 }
@@ -222,9 +222,16 @@ const Container = styled.div`
     color: var(--color-primary-red);
     letter-spacing: normal;
   }
+`;
 
-  p {
-    margin-top: 3rem;
-    background: none;
-  }
+const Text = styled.p`
+  background: none;
+  width: 100%;
+  position: absolute;
+  bottom: -3.5rem;
+  color: var(--color-primary-blue);
+  font-size: clamp(0.5rem, 1.1vw, 0.875rem);
+  letter-spacing: clamp(2px, 0.45vw, 0.5rem);
+  text-align: center;
+  text-transform: uppercase;
 `;
