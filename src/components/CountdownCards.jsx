@@ -70,14 +70,8 @@ const CountdownContainer = styled.div`
 `;
 
 const CountdownWrapper = styled.div`
-  width: 100%;
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  /* justify-content: center; */
-  /* gap: ${rem(15)}; */
-  flex-wrap: wrap;
+  justify-content: space-between; /* justify-content: center; */ /* gap: ${rem(15)}; */ /* flex-wrap: wrap; */
   min-width: clamp(${rem(330)}, 51vw, ${rem(688)});
 `;
 
@@ -96,30 +90,81 @@ const CardContainer = styled.div`
 
 const Card = styled.span`
   font-size: clamp(${rem(36)}, 7vw, ${rem(80)});
+  height: clamp(${rem(66)}, 11vw, ${rem(138)});
+  perspective: ${rem(500)};
+  position: relative;
+  transform-style: preserve-3d;
+  width: clamp(${rem(70)}, 11vw, ${rem(148)});
 
   span {
     color: var(--color-primary-red);
   }
 
+  .tick-flip-panel-front-text {
+    top: 0.75rem;
+  }
+
+  .tick-flip-panel-back-text {
+    top: 0.75rem;
+    /* bottom: 0.75rem; */
+  }
+
+  .tick-flip-panel-back-highlight {
+    /* top: 0.75rem; */
+  }
+
+  /* STRUCTURE */
   .tick-flip-card {
+    /* 1st */
+    .tick-flip-panel-front {
+    }
+    .tick-flip-front {
+    }
+    .tick-flip-panel {
+    }
+
+    .tick-flip-panel-front.tick-flip-front.tick-flip-panel {
+      .tick-flip-panel-front-text {
+        .tick-flip-panel-text-wrapper {
+        }
+      }
+
+      .tick-flip-panel-front-shadow {
+      }
+    }
+
+    /* 2nd */
+    .tick-flip.panel-back {
+    }
+    .tick-flip-back {
+    }
+    .tick-flip-panel {
+    }
+
+    .tick-flip.panel-back.tick-flip-back.tick-flip-panel {
+      .tick-flip-panel-back-text {
+        .tick-flip-panel-text-wrapper {
+        }
+      }
+
+      .tick-flip-panel-back-highlight {
+      }
+
+      .tick-flip-panel-back-shadow {
+      }
+    }
   }
 
   .tick-flip-spacer {
   }
 
-  .tick-flip-front {
+  .tick-flip-shadow-top.tick-flip-shadow.tick-flip-front {
   }
 
-  .tick-flip-back {
+  .tick-flip-shadow-bottom.tick-flip-shadow.tick-flip-back {
   }
 
-  .tick-flip-shadow {
-  }
-
-  .tick-flip-shadow-top {
-  }
-
-  .tick-flip-shadow-bottom {
+  .tick-flip-card-shadow {
   }
 `;
 
