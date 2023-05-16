@@ -40,13 +40,20 @@ export default function CountdownCards({ targetDate }) {
 
   return (
     <LeSigh className='LeSigh tick'>
-      <CountdownContainer className='CountdownContainer tick-group' data-repeat='true' data-layout='horizontal fit'>
+      {/* <CountdownContainer className='CountdownContainer tick-group' data-repeat='true' data-layout='horizontal fit'>
         <CountdownWrapper ref={divRef} className='CountdownWrapper'>
           {[['days'], ['hours'], ['mins', 'minutes'], ['secs', 'seconds']].map((data, i) => (
             <CardContainer className='CardContainer' key={`card-${data[0]}`}>
               <Card className='Card' data-key={data[0]} data-transform='pad(00)' data-view='flip' />
               <Text className='Text tick-text-inline'>{data[1] || data[0]}</Text>
             </CardContainer>
+          ))}
+        </CountdownWrapper>
+      </CountdownContainer> */}
+      <CountdownContainer className='CountdownContainer tick-group' data-repeat='true' data-layout='horizontal fit'>
+        <CountdownWrapper ref={divRef} className='CountdownWrapper'>
+          {[['days'], ['hours'], ['mins', 'minutes'], ['secs', 'seconds']].map((data, i) => (
+            <Card className='Card' data-key={data[0]} data-transform='pad(00)' data-view='flip' />
           ))}
         </CountdownWrapper>
       </CountdownContainer>
@@ -71,7 +78,7 @@ const CountdownWrapper = styled.div`
   /* justify-content: center; */
   /* gap: ${rem(15)}; */
   flex-wrap: wrap;
-  min-width: clamp(rem(330), 51vw, rem(688));
+  min-width: clamp(${rem(330)}, 51vw, ${rem(688)});
 `;
 
 const CardContainer = styled.div`
@@ -84,7 +91,7 @@ const CardContainer = styled.div`
   .tick-flip {
     /* height: clamp(${rem(66)}, 11vw, ${rem(138)}); */
   }
-  width: clamp(${rem(70)}, 11, ${rem(148)});
+  /* width: clamp(${rem(70)}, 11, ${rem(148)}); */
 `;
 
 const Card = styled.span`
@@ -92,6 +99,27 @@ const Card = styled.span`
 
   span {
     color: var(--color-primary-red);
+  }
+
+  .tick-flip-card {
+  }
+
+  .tick-flip-spacer {
+  }
+
+  .tick-flip-front {
+  }
+
+  .tick-flip-back {
+  }
+
+  .tick-flip-shadow {
+  }
+
+  .tick-flip-shadow-top {
+  }
+
+  .tick-flip-shadow-bottom {
   }
 `;
 
