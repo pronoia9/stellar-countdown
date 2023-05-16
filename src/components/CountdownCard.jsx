@@ -170,12 +170,12 @@ const Container = styled.div`
 
   /********************   ANIMATION (START)   ********************/
   .fold {
-    animation: ${fold} 0.6s cubic-bezier(0.455, 0.03, 0.515, 0.955) 0s 1 normal forwards;
+    animation: ${fold} 0.8s cubic-bezier(0.455, 0.03, 0.515, 0.955) 0s 1 normal forwards;
     transform-style: preserve-3d;
   }
 
   .unfold {
-    animation: ${unfold} 0.6s cubic-bezier(0.455, 0.03, 0.515, 0.955) 0s 1 normal forwards;
+    animation: ${unfold} 0.8s cubic-bezier(0.8, 0.8, 0.375, 1.275) 0s 1 normal forwards;
     transform-style: preserve-3d;
   }
   /*********************   ANIMATION (END)   *********************/
