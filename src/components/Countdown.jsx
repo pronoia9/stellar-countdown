@@ -1,15 +1,32 @@
+import { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 
-import { rem, getTargetDate } from '../utils/utils';
-import { CountdownCards } from './';
+import { rem, getTargetDate, calculateCountdown } from '../utils/utils';
+import { CountdownCard } from './';
 
 const Countdown = () => {
-  const targetDate = getTargetDate();
+  const [targetDate, setTargetDate] = useState(getTargetDate());
+  const [countdown, setCountdown] = useState(calculateCountdown(targetDate));
+  const interval = useRef();
+
+  useEffect(() => {
+    interval.current = setInterval(() => {
+      setCountdown((prev) => {
+        const update = calculateCountdown(targetDate, prev);
+        return update;
+      });
+    }, 1000);
+    return () => clearInterval(interval.current);
+  }, [targetDate]);
 
   return (
     <Container>
       <Title>We're launching soon</Title>
-      <CountdownCards targetDate={targetDate.toISOString()} />
+      <Wrapper>
+        {Object.keys(countdown.count).map((unit, index) => {
+          return <CountdownCard key={`card-${unit}`} digit={countdown.count[unit]} shuffle={countdown.shuffle[unit]} label={unit} />;
+        })}
+      </Wrapper>
     </Container>
   );
 };
@@ -29,4 +46,9 @@ const Title = styled.h1`
   font-size: var(--font-size-title);
   text-align: center;
   letter-spacing: var(--title-letter-spacing);
+`;
+
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: row;
 `;
