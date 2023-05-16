@@ -35,20 +35,35 @@ export default Countdown;
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 2rem;
-  margin-bottom: 2rem;
+  align-items: center;
+  justify-content: center;
+  gap: 6rem;
   min-width: clamp(20.625rem, 51vw, 43rem);
 `;
 
 const Title = styled.h1`
   color: var(--color-neutral-white);
   text-transform: uppercase;
-  font-size: var(--font-size-title);
   text-align: center;
-  letter-spacing: var(--title-letter-spacing);
+  font-size: ${rem(18)};
+  letter-spacing: ${rem(5)};
+
+  @media screen and (min-width: 1024px) {
+    font-size: calc(${rem(18)}* 1.15);
+    letter-spacing: calc(${rem(5)}* 1.75);
+  }
 `;
 
 const Wrapper = styled.div`
   display: flex;
   flex-direction: row;
+  gap: ${rem(15)};
+
+  @media screen and (min-width: 1024px) {
+    gap: calc(${rem(15)}*2);
+  }
+
+  @media screen and (min-width: 1440px) {
+    gap: calc(${rem(15)} * 2.25);
+  }
 `;
