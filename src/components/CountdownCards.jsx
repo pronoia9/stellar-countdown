@@ -1,31 +1,40 @@
 import { useRef, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import Tick from '@pqina/flip';
-import { rem } from '../utils/utils';
 
-export default function CountdownCards ({ targetDate })  {
+import { rem } from '../utils/utils';
+import '@pqina/flip/dist/flip.css';
+
+export default function CountdownCards({ targetDate }) {
   const [tickValue, setTickValue] = useState(targetDate);
-  const divRef = useRef(), tickRef = useRef();
+  const divRef = useRef(),
+    tickRef = useRef();
 
   // Make the Tick instance and store it in the refs
   useEffect(() => {
-    const didInit = (tick) => { tickRef.current = tick; };
-    Tick.DOM.create(divRef.current, { value: targetDate, didInit, });
+    const didInit = (tick) => {
+      tickRef.current = tick;
+    };
+    Tick.DOM.create(divRef.current, { value: targetDate, didInit });
     return () => Tick.DOM.destroy(tickRef.current);
   }, [targetDate]);
 
   // Start the Tick.down process
   useEffect(() => {
-    const counter = Tick.count.down(targetDate, { format: ['d', 'h', 'm', 's'], });
+    const counter = Tick.count.down(targetDate, { format: ['d', 'h', 'm', 's'] });
     // When the counter updates, update React's state value
-    counter.onupdate = function (value) { setTickValue(value); };
-    return () => { counter?.timer?.stop(); };
+    counter.onupdate = function (value) {
+      setTickValue(value);
+    };
+    return () => {
+      counter?.timer?.stop();
+    };
   }, [targetDate]);
 
   // When the tickValue is updated, update the Tick.DOM element
   useEffect(() => {
     if (tickRef.current) {
-      tickRef.current.value = { days: tickValue[0], hours: tickValue[1], mins: tickValue[2], secs: tickValue[3], };
+      tickRef.current.value = { days: tickValue[0], hours: tickValue[1], mins: tickValue[2], secs: tickValue[3] };
     }
   }, [tickValue]);
 
@@ -43,7 +52,7 @@ export default function CountdownCards ({ targetDate })  {
       </CountdownContainer>
     </LeSigh>
   );
-};
+}
 
 const LeSigh = styled.div`
   width: 100%;
@@ -58,9 +67,11 @@ const CountdownWrapper = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  /* justify-content: center; */
+  /* gap: ${rem(15)}; */
   flex-wrap: wrap;
-  gap: ${rem(15)};
+  min-width: clamp(rem(330), 51vw, rem(688));
 `;
 
 const CardContainer = styled.div`
@@ -68,9 +79,21 @@ const CardContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 3.5rem;
+
+  .tick-flip {
+    /* height: clamp(${rem(66)}, 11vw, ${rem(138)}); */
+  }
+  width: clamp(${rem(70)}, 11, ${rem(148)});
 `;
 
-const Card = styled.span``;
+const Card = styled.span`
+  font-size: clamp(${rem(36)}, 7vw, ${rem(80)});
+
+  span {
+    color: var(--color-primary-red);
+  }
+`;
 
 const Text = styled.span`
   width: 100%;
