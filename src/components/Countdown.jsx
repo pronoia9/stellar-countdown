@@ -24,7 +24,7 @@ const Countdown = () => {
       <Title>We're launching soon</Title>
       <Wrapper>
         {Object.keys(countdown.count).map((unit, index) => {
-          return <CountdownCard key={`card-${unit}`} digit={countdown.count[unit]} shuffle={countdown.shuffle[unit]} label={unit} />;
+          return <CountdownCard key={`card-${unit}`} number={countdown.count[unit]} shuffle={countdown.shuffle[unit]} label={unit} />;
         })}
       </Wrapper>
     </Container>
