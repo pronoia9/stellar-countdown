@@ -33,12 +33,14 @@ const Countdown = () => {
 export default Countdown;
 
 const Container = styled.div`
+  flex-grow: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 6rem;
   min-width: clamp(20.625rem, 51vw, 43rem);
+  padding-bottom: 10%;
 `;
 
 const Title = styled.h1`

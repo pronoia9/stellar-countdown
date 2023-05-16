@@ -30,9 +30,14 @@ const Wrapper = styled.div`
   height: 100vh;
   background: url(/src/assets/pattern-hills.svg) no-repeat bottom center;
   background-size: contain;
-  padding: 8.5rem clamp(1.5rem, 5vw, 5rem) 0.5rem;
+  /* padding: 8.5rem clamp(1.5rem, 5vw, 5rem) 0.5rem;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-around;
+  align-items: center; */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
   align-items: center;
+  padding-bottom: 0.75rem;
 `;

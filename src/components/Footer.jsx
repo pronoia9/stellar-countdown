@@ -21,6 +21,7 @@ export default function Footer() {
 }
 
 const Container = styled.div`
+  flex-shrink: 0;
   display: flex;
   flex-direction: column;
   gap: 4rem;
