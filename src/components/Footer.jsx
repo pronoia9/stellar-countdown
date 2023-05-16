@@ -23,7 +23,7 @@ export default function Footer() {
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 4rem;
 `;
 
 const Attribution = styled.div`
