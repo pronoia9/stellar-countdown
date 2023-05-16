@@ -12,34 +12,20 @@ export const calculateMinutes = (targetDate) => Math.floor(((+targetDate - +new 
 export const calculateSeconds = (targetDate) => Math.floor(((+targetDate - +new Date()) / 1000) % 60);
 
 export const calculateCountdown = (targetDate, state) => {
-  const days = calculateDays(targetDate),
-    hours = calculateHours(targetDate),
-    minutes = calculateMinutes(targetDate),
-    seconds = calculateSeconds(targetDate);
+  const days = formatTime(calculateDays(targetDate)),
+    hours = formatTime(calculateHours(targetDate)),
+    minutes = formatTime(calculateMinutes(targetDate)),
+    seconds = formatTime(calculateSeconds(targetDate)),
+    shuffle = { days: false, hours: false, minutes: false, seconds: false };
 
   if (state) {
-    return {
-      count: {
-        days: `${days < 10 ? '0' : ''}${days}`,
-        hours: `${hours < 10 ? '0' : ''}${hours}`,
-        minutes: `${minutes < 10 ? '0' : ''}${minutes}`,
-        seconds: `${seconds < 10 ? '0' : ''}${seconds}`,
-      },
-      shuffle: {
-        days: days !== parseInt(state.count.days) ? !state.shuffle.days : state.shuffle.days,
-        hours: hours !== parseInt(state.count.hours) ? !state.shuffle.hours : state.shuffle.hours,
-        minutes: minutes !== parseInt(state.count.minutes) ? !state.shuffle.minutes : state.shuffle.minutes,
-        seconds: seconds !== parseInt(state.count.seconds) ? !state.shuffle.seconds : state.shuffle.seconds,
-      },
-    };
+    shuffle.days = days !== state.count.days ? !state.shuffle.days : state.shuffle.days;
+    shuffle.hours = hours !== state.count.hours ? !state.shuffle.hours : state.shuffle.hours;
+    shuffle.minutes = minutes !== state.count.minutes ? !state.shuffle.minutes : state.shuffle.minutes;
+    shuffle.seconds = seconds !== state.count.seconds ? !state.shuffle.seconds : state.shuffle.seconds;
   }
-  return {
-    count: {
-      days: `${days < 10 ? '0' : ''}${days}`,
-      hours: `${hours < 10 ? '0' : ''}${hours}`,
-      minutes: `${minutes < 10 ? '0' : ''}${minutes}`,
-      seconds: `${seconds < 10 ? '0' : ''}${seconds}`,
-    },
-    shuffle: { days: false, hours: false, minutes: false, seconds: false },
-  };
+
+  return { count: { days, hours, minutes, seconds }, shuffle };
 };
+
+const formatTime = (value) => value.toString().padStart(2, '0');
