@@ -2,8 +2,12 @@ export const rem = (px) => `${px / 16}rem`;
 
 export const getTargetDate = () => {
   const currentDate = new Date();
-  const futureDate = new Date(currentDate.getTime() + 8 * 24 * 60 * 60 * 1000 + 23 * 60 * 60 * 1000 + 55 * 60 * 1000 + 41 * 1000);
-  return futureDate;
+  const storedDateKey = 'stellar_countdown-targetDate';
+  const storedDate = localStorage.getItem(storedDateKey);
+  const defaultDate = new Date(currentDate.getTime() + 8 * 24 * 60 * 60 * 1000 + 23 * 60 * 60 * 1000 + 55 * 60 * 1000 + 41 * 1000);
+  // Add default date to local storage if theres none or if the existing date is exipired
+  if (!storedDate || currentDate > new Date(storedDate)) localStorage.setItem(storedDateKey, defaultDate);
+  return new Date(localStorage.getItem(storedDateKey));
 };
 
 export const calculateDays = (targetDate) => Math.floor((+targetDate - +new Date()) / (1000 * 60 * 60 * 24));
