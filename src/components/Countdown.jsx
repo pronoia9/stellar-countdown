@@ -5,16 +5,13 @@ import { rem, getTargetDate, calculateCountdown } from '../utils/utils';
 import { CountdownCard } from './';
 
 const Countdown = () => {
-  const [targetDate, setTargetDate] = useState(getTargetDate());
+  const [targetDate] = useState(getTargetDate());
   const [countdown, setCountdown] = useState(calculateCountdown(targetDate));
   const interval = useRef();
 
   useEffect(() => {
     interval.current = setInterval(() => {
-      setCountdown((prev) => {
-        const update = calculateCountdown(targetDate, prev);
-        return update;
-      });
+      setCountdown((prev) => calculateCountdown(targetDate, prev));
     }, 1000);
     return () => clearInterval(interval.current);
   }, [targetDate]);
@@ -24,7 +21,7 @@ const Countdown = () => {
       <Title>We're launching soon</Title>
       <Wrapper>
         {Object.keys(countdown.count).map((unit, index) => {
-          return <CountdownCard key={`card-${unit}`} number={countdown.count[unit]} shuffle={countdown.shuffle[unit]} label={unit} />;
+          return <CountdownCard key={`card-${unit}`} number={countdown.count[unit]} shuffle={countdown.shuffle[unit]} index={index} label={unit} />;
         })}
       </Wrapper>
     </Container>
